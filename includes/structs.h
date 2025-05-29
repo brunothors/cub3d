@@ -6,7 +6,7 @@
 /*   By: vcarrara <vcarrara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:32:50 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/05/14 13:30:36 by vcarrara         ###   ########.fr       */
+/*   Updated: 2025/05/29 14:33:31 by vcarrara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "cube.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_data
 {

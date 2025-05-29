@@ -6,12 +6,12 @@
 /*   By: vcarrara <vcarrara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:44:25 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/05/14 11:44:34 by vcarrara         ###   ########.fr       */
+/*   Updated: 2025/05/29 14:33:14 by vcarrara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-# define CUB_H
+#ifndef CUBE_H
+# define CUBE_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -27,5 +27,6 @@
 # include "macros.h"
 # include "functions.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/includes/libft.h"
 
 #endif
