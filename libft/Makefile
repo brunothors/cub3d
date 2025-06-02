@@ -1,6 +1,6 @@
 NAME = libft.a
 
-SRCS = ./srcs/*.c
+SRCS = ./srcs/*.c ./gnl/*.c
 
 PATH_OBJS = ./objs/
 OBJS = $(SRCS:%.c=$(PATH_OBJS)%.o)

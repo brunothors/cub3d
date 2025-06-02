@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcarrara <vcarrara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 11:44:25 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/06/02 16:57:29 by vcarrara         ###   ########.fr       */
+/*   Created: 2023/12/20 11:37:28 by vcarrara          #+#    #+#             */
+/*   Updated: 2024/01/12 18:54:37 by vcarrara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <errno.h>
-# include <stdbool.h>
-# include <stdint.h>
-# include <string.h>
-# include <math.h>
-# include "colors.h"
-# include "structs.h"
-# include "macros.h"
-# include "functions.h"
-# include "../MLX42/include/MLX42/MLX42.h"
-# include "../libft/includes/libft.h"
+int	main(int argc, char **argv)
+{
+	char		*gnl;
+	int			fd;
 
-#endif
+	if (argc == 1)
+		fd = 1;
+	else
+		fd = open(argv[1], O_RDONLY);
+	if (fd < 1)
+		return (0);
+	gnl = get_next_line(fd);
+	while (gnl)
+	{
+		printf("%s", gnl);
+		if (gnl)
+			free(gnl);
+		gnl = get_next_line(fd);
+	}
+	if (fd > 1)
+		close(fd);
+	return (0);
+}
