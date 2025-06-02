@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_process.c                                     :+:      :+:    :+:   */
+/*   data_processing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 13:37:55 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/05/29 19:12:33 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:35:50 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes/cube.h"
 
 void	data_processing(char *map_file, t_data *data)
 {
@@ -41,7 +41,7 @@ void	read_textures_path(t_data *data, char *temp, int fd)
 			temp++;
 		read_textures_path_aux(data, temp, line);
 		free(line);
-		if (data->NO && data->SO && data->WE && data->EA && data->colors)
+		if (data->no && data->so && data->we && data->ea && data->colors)
 			break ;
 		temp = get_next_line(fd);
 	}

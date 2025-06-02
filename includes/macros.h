@@ -6,14 +6,14 @@
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:03:37 by bnespoli          #+#    #+#             */
-/*   Updated: 2025/05/29 19:03:39 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:01:50 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
 
-# include "cub.h"
+# include "cube.h"
 
 # define WIDTH 800
 # define HEIGHT 600

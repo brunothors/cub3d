@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 11:43:04 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/05/29 19:08:50 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:06:29 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes/cube.h"
 
 void	free_data(t_data *data)
 {
-	if (data->N)
-		free(data->N);
-	if (data->W)
-		free(data->W);
-	if (data->S)
-		free(data->S);
-	if (data->E)
-		free(data->E);
+	if (data->no)
+		free(data->no);
+	if (data->so)
+		free(data->so);
+	if (data->we)
+		free(data->we);
+	if (data->ea)
+		free(data->ea);
 	if (data->map)
 		ft_free_matrix(data->map);
 	if (data)

@@ -6,16 +6,16 @@
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:03:59 by bnespoli          #+#    #+#             */
-/*   Updated: 2025/05/29 19:04:07 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:01:50 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# include "cub.h"
+# include "cube.h"
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "../libft/src/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_data
 {

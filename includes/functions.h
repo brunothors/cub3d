@@ -6,14 +6,14 @@
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:03:09 by bnespoli          #+#    #+#             */
-/*   Updated: 2025/05/29 19:03:21 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:01:50 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_H
 # define FUNCTIONS_H
 
-# include "cub.h"
+# include "cube.h"
 
 int				init_game(t_cub *game);
 

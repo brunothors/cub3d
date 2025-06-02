@@ -6,11 +6,11 @@
 /*   By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:26:09 by vcarrara          #+#    #+#             */
-/*   Updated: 2025/05/29 19:12:33 by bnespoli         ###   ########.fr       */
+/*   Updated: 2025/06/02 17:36:36 by bnespoli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub.h"
+#include "../../includes/cube.h"
 
 static void	check_colors(t_data *data, char *line, char *temp)
 {
@@ -33,13 +33,13 @@ static void	check_colors(t_data *data, char *line, char *temp)
 void	read_textures_path_aux(t_data *data, char *temp, char *line)
 {
 	if (ft_strncmp("NO", temp, 2) == 0)
-		copy_texture_path(&(data->NO), temp, "NO", line);
+		copy_texture_path(&(data->no), temp, "NO", line);
 	else if (ft_strncmp("SO", temp, 2) == 0)
-		copy_texture_path(&(data->SO), temp, "SO", line);
+		copy_texture_path(&(data->so), temp, "SO", line);
 	else if (ft_strncmp("WE", temp, 2) == 0)
-		copy_texture_path(&(data->WE), temp, "WE", line);
+		copy_texture_path(&(data->we), temp, "WE", line);
 	else if (ft_strncmp("EA", temp, 2) == 0)
-		copy_texture_path(&(data->EA), temp, "EA", line);
+		copy_texture_path(&(data->ea), temp, "EA", line);
 	else if (ft_strncmp("F", temp, 1) == 0)
 		check_rgb(&data->floor, temp, line, 'F');
 	else if (ft_strncmp("C", temp, 1) == 0)

@@ -6,24 +6,24 @@
 #    By: bnespoli <bnespoli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 18:54:06 by bnespoli          #+#    #+#              #
-#    Updated: 2025/05/29 18:54:29 by bnespoli         ###   ########.fr        #
+#    Updated: 2025/06/02 18:14:27 by bnespoli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        := cub3D
-CFLAGS      := -Wextra -Wall -Werror -g3 -O3 -fPIC
+CFLAGS      := -Wextra -Wall -Werror -g3 -O3 -fPIC -MMD -MP
 MAKEFLAGS   += --silent
 
 LIBMLX      := ./MLX42
 LIBFT_PATH  := ./libft
-LIBFT       := $(addprefix $(LIBFT_PATH)/, libft.a)
+LIBFT       := $(LIBFT_PATH)/libft.a
 MLX_REPO    := https://github.com/codam-coding-college/MLX42.git
 
 CC          := gcc
 SRC_PATH    := src
 OBJ_PATH    := objects
 
-CFILES      :=  main.c \
+CFILES      := main.c \
                 init/init.c \
                 init/init_game.c \
                 utils/utils.c \
@@ -37,7 +37,7 @@ CFILES      :=  main.c \
                 parsing/map_utils.c \
                 parsing/check_wall.c \
                 parsing/tabs.c \
-				parsing/parsing_utils.c \
+                parsing/parsing_utils.c \
                 render/hooks.c \
                 render/movements.c \
                 render/images.c \
@@ -47,22 +47,16 @@ CFILES      :=  main.c \
                 render/update_image.c \
                 render/draw_loop.c
 
-
-
 SRCS        := $(addprefix $(SRC_PATH)/, $(CFILES))
 OBJS        := $(addprefix $(OBJ_PATH)/, $(CFILES:%.c=%.o))
+DEPS        := $(OBJS:.o=.d)
 
-HEADERS     := -I ./includes
-HEADER_FILE := includes/cub.h ./MLX42/include
+HEADERS     := -I ./includes -I ./MLX42/include
 LIBS_MLX    := $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
-all: libmlx $(OBJ_PATH) $(NAME)
+all: libmlx $(LIBFT) $(OBJ_PATH) $(NAME)
 
 libmlx:
-	@if [ ! -d "$(LIBMLX)" ]; then \
-		echo "Cloning MLX42 repository..."; \
-		git clone $(MLX_REPO) $(LIBMLX); \
-	fi
 	@if [ ! -d "$(LIBMLX)" ]; then \
 		echo "Cloning MLX42 repository..."; \
 		git clone $(MLX_REPO) $(LIBMLX); \
@@ -72,14 +66,14 @@ libmlx:
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER_FILE) | $(OBJ_PATH)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+	@$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
 
 $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS_MLX) $(LIBFT) $(HEADERS) -o $(NAME) -lm
 	@echo "The CUB3D has been compiled!"
 
@@ -92,12 +86,9 @@ fclean: clean
 	@rm -rf $(LIBMLX)/build
 	@make fclean -C $(LIBFT_PATH)
 	@echo "Cleaning complete!"
-	@echo "Cleaning complete!"
-
-clear:
-	clear
-	$(MAKE) all
 
 re: fclean all
+
+-include $(DEPS)
 
 .PHONY: all clean fclean re libmlx
